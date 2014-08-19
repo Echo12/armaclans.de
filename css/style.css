@@ -55,3 +55,7 @@ body {
 .clanlist-row .detail-expand {
   text-align: right;
 }
+
+.filterlist .panel {
+  padding: 10px;
+}
