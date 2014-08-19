@@ -2,6 +2,8 @@ name: ArmA Clans
 markdown: redcarpet
 pygments: true
 
+baseurl: /armaclans.de
+
 collections:
 - clandata
 
