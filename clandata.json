@@ -1,0 +1,8 @@
+---
+layout: nil
+---
+[{% for clan in site.clandata %}
+  {{ clan | jsonify }},
+{% endfor %}
+	null
+]

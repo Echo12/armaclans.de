@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<div class="container" >
+
+  <div class="row">
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 filterlist" ng-controller="FilterListCtrl"> 
+      <!--  ng-controller="FilterListCtrl" -->
+      <div class="panel panel-default">
+        <h4>Suche</h4>
+        <div class="search">
+          <input type="text" ng-model="filterData.search" class="form-control">
+        </div>
+        <div class="filter" ng-repeat="filt in filterData.filters">
+          <h4>[[filt.title]]</h4>
+          <ul>
+            <li ng-repeat="option in filt.options" ng-class="{active: (filt.selected==$index)}" ng-click="SetFilter(filt, $index)">[[ option.text ]]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9" ng-controller="IndexCtrl">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Abkuerzung</th>
+            <th>Name</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat-start="clan in clandata | filter: filterData.search | FilterListFilter">
+            <td>[[ clan.slug ]]</td>
+            <td>[[ clan.name ]]</td>
+            <td>
+              <a ng-if="clan.expanded" ng-click="clan.expanded = false">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+              </a>
+              <a ng-if="!clan.expanded" ng-click="clan.expanded = true">
+                <span class="glyphicon glyphicon-chevron-down"></span>
+              </a>
+            </td>
+          </tr>
+          <tr ng-if="clan.expanded" ng-repeat-end="">
+            <td colspan="3">
+              <table class="table table-bordered table-striped col-md-5">
+                <tbody>
+                  <tr>
+                    <th>Gruppe</th>
+                    <td>[[ clan.name ]] ([[clan.slug]])</td>
+                  </tr>
+                  <tr>
+                    <th>Gruendung</th>
+                    <td>[[ clan.since ]]</td>
+                  </tr>
+                  <tr>
+                    <th>Auf Mitgliedersuche</th>
+                    <td ng-if="clan.join" class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Ja</span></td>
+                    <td ng-if="!clan.join" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
+                  </tr>
+                  <tr>
+                    <th>Eigene(r) Server</th>
+                    <td ng-if="clan.ownserver" class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Ja</span></td>
+                    <td ng-if="!clan.ownserver" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
+                  </tr>
+                  <tr>
+                    <th>Website</th>
+                    <td><a ng-href="[[ clan.website ]]">[[ clan.website ]]</a></td>
+                  </tr>
+                  <tr>
+                    <th>Teamspeak</th>
+                    <td><a ng-href="ts3://[[ clan.teamspeak ]]">[[ clan.teamspeak ]]</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div> <!-- /container -->

@@ -1,0 +1,24 @@
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p class="text-muted">2013 © Echo12. ALL Rights Reserved.</p>
+      </div>
+      <div class="col-md-6">
+        <p class="text-muted pull-right">
+         <a href="/impressum.html">Impressum</a> | <a href="/datenschutz.html">Datenschutz</a>
+       </p>
+     </div>
+   </div>
+ </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"></script>
+<script src="{{ "/scripts/app.js" | prepend: site.baseurl }}"></script>
+<script type="text/javascript">
+  angular.module('clansApp').constant('clanData', [{% for clan in site.clandata %}{{clan | jsonify }}{% if forloop.last == false %}, {% endif %}{% endfor %}]);
+</script>
+<script src="{{ "/scripts/service.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/controller.js" | prepend: site.baseurl }}"></script>

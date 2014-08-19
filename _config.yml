@@ -1,0 +1,18 @@
+name: ArmA Clans
+markdown: redcarpet
+pygments: true
+
+collections:
+- clandata
+
+navleft:
+  - title: Liste
+    url: /index.html
+  - title: Guide
+    url: /guide.html
+  - title: Neuer Eintrag
+    url: /eintrag.html
+
+navright:
+  - title: About
+    url: /about/
