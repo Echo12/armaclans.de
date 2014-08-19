@@ -23,19 +23,21 @@ layout: default
         </div>
       </div>
     </div>
-    <div class="col-md-9" ng-controller="IndexCtrl">
+    <div class="col-md-9 clanlist" ng-controller="IndexCtrl">
       <table class="table">
         <thead>
           <tr>
             <th>Abkuerzung</th>
             <th>Name</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat-start="clan in clandata | filter: filterData.search | FilterListFilter">
+          <tr class="clanlist-row" ng-repeat-start="clan in clandata | filter: filterData.search | FilterListFilter">
             <td>[[ clan.slug ]]</td>
             <td>[[ clan.name ]]</td>
+            <td><img ng-if="clan.thumb" src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
             <td>
               <a ng-if="clan.expanded" ng-click="clan.expanded = false">
                 <span class="glyphicon glyphicon-chevron-up"></span>
@@ -45,13 +47,17 @@ layout: default
               </a>
             </td>
           </tr>
-          <tr ng-if="clan.expanded" ng-repeat-end="">
+          <tr class="clanlist-details" ng-if="clan.expanded" ng-repeat-end="">
             <td colspan="3">
               <table class="table table-bordered table-striped col-md-5">
                 <tbody>
                   <tr>
                     <th>Gruppe</th>
                     <td>[[ clan.name ]] ([[clan.slug]])</td>
+                  </tr>
+                  <tr ng-if="clan.thumb">
+                    <th>Logo</th>
+                    <td><img src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
                   </tr>
                   <tr>
                     <th>Gruendung</th>

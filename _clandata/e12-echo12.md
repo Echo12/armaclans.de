@@ -4,7 +4,7 @@ name: Echo12
 since: 2012
 games: ['a2','a3']
 members: 30
-
+thumb: e12.png
 teamspeak: ts.echo12.de
 website: www.echo12.de
 playstyle: ['acre','firstperson','moddev']

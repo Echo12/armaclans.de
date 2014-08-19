@@ -3,6 +3,7 @@ markdown: redcarpet
 pygments: true
 
 baseurl: /armaclans.de
+thumbpath: /thumbs
 
 collections:
 - clandata
