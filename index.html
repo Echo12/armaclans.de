@@ -36,17 +36,17 @@ layout: default
           </tr>
         </thead>
         <tbody>
-          <tr class="clanlist-row" ng-repeat-start="clan in filteredClandata = (clandata | filter: filterData.search | FilterListFilter)">
+          <tr class="clanlist-row" ng-repeat-start="clan in filteredClandata = (clandata | filter: filterData.search | FilterListFilter)" ng-click="clan.expanded = !clan.expanded">
             <td>[[ clan.slug ]]</td>
             <td>[[ clan.name ]]</td>
             <td>[[ clan.since ]]</td>
             <td><span ng-repeat="game in clan.games">[[ game | uppercase ]][[$last ? '' : ', ']]</span></td>
             <td><img ng-if="clan.thumb" ng-src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
             <td class="detail-expand">
-              <a ng-if="clan.expanded" ng-click="clan.expanded = false">
+              <a ng-if="clan.expanded">
                 <span class="glyphicon glyphicon-chevron-up"></span>
               </a>
-              <a ng-if="!clan.expanded" ng-click="clan.expanded = true">
+              <a ng-if="!clan.expanded">
                 <span class="glyphicon glyphicon-chevron-down"></span>
               </a>
             </td>
