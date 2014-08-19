@@ -14,7 +14,6 @@ angular.module('clansApp')
   })
   .filter('FilterListFilter', function(FilterData) {
     return function(input) {
-      console.log("Filter:", input);
       var output = [];
       for (var j = 0; j < input.length; j++){
         var match = true;
