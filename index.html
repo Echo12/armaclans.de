@@ -36,7 +36,7 @@ layout: default
           </tr>
         </thead>
         <tbody>
-          <tr class="clanlist-row" ng-repeat-start="clan in clandata | filter: filterData.search | FilterListFilter">
+          <tr class="clanlist-row" ng-repeat-start="clan in filteredClandata = (clandata | filter: filterData.search | FilterListFilter)">
             <td>[[ clan.slug ]]</td>
             <td>[[ clan.name ]]</td>
             <td>[[ clan.since ]]</td>
@@ -108,6 +108,9 @@ layout: default
                 </tbody>
               </table>
             </td>
+          </tr>
+          <tr class="clanlist-row" ng-hide="filteredClandata.length">
+            <td colspan="5">Keine Clans entsprechen diesen Kriterien</td>
           </tr>
         </tbody>
       </table>
