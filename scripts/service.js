@@ -51,6 +51,24 @@ angular.module('clansApp')
   });
 
   filterData.filters.push({
+    title: "Mindestalter",
+    options: [{
+      text: "Egal",
+      filter: function(data) {return true;}
+    },{
+      text: "Unter 16 Jahre",
+      filter: function(data) {return data.joinage < 16;}
+    },{
+      text: "Mindestens 16 Jahre",
+      filter: function(data) {return data.joinage <= 16;}
+    },{
+      text: "Mindestens 18 Jahre",
+      filter: function(data) {return data.joinage <= 18;}
+    }],
+    selected: 0
+  });
+
+  filterData.filters.push({
     title: "Alter",
     options: [{
       text: "Egal",
