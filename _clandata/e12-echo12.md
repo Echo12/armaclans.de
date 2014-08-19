@@ -12,7 +12,6 @@ guests: false
 join: true
 joinage: 18
 ownserver: true
-regularevents: true
 eventsperweek: 3
 # thirdperson, rangsystem, milsim, acre, casual, crosshair, moddev
 date:   2014-08-17 22:22:38

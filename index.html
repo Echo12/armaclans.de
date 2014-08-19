@@ -55,7 +55,7 @@ layout: default
                   </tr>
                   <tr>
                     <th>Gruendung</th>
-                    <td>[[ clan.since ]]</td>
+                    <td>[[ clan.since || 'Unbekannt']]</td>
                   </tr>
                   <tr>
                     <th>Auf Mitgliedersuche</th>
@@ -68,12 +68,20 @@ layout: default
                     <td ng-if="!clan.ownserver" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
                   </tr>
                   <tr>
+                    <th>Mindestalter</th>
+                    <td>[[ clan.joinage || 'Unbekannt' ]]</td>
+                  </tr>
+                  <tr>
+                    <th>Events pro Woche</th>
+                    <td>[[ clan.eventsperweek || 'Unbekannt' ]]</td>
+                  </tr>
+                  <tr>
                     <th>Website</th>
-                    <td><a ng-href="[[ clan.website ]]">[[ clan.website ]]</a></td>
+                    <td><a ng-href="[[ clan.website ]]">[[ clan.website || 'Unbekannt' ]]</a></td>
                   </tr>
                   <tr>
                     <th>Teamspeak</th>
-                    <td><a ng-href="ts3://[[ clan.teamspeak ]]">[[ clan.teamspeak ]]</a></td>
+                    <td><a ng-href="ts3://[[ clan.teamspeak ]]">[[ clan.teamspeak || 'Unbekannt' ]]</a></td>
                   </tr>
                 </tbody>
               </table>
