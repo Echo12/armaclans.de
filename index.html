@@ -63,6 +63,11 @@ layout: default
                     <td ng-if="!clan.join" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
                   </tr>
                   <tr>
+                    <th>Nehmen Gastspieler auf</th>
+                    <td ng-if="clan.guests" class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Ja</span></td>
+                    <td ng-if="!clan.guests" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
+                  </tr>
+                  <tr>
                     <th>Eigene(r) Server</th>
                     <td ng-if="clan.ownserver" class="text-success"><span class="glyphicon glyphicon-ok"></span> <span class="sr-only">Ja</span></td>
                     <td ng-if="!clan.ownserver" class="text-danger"><span class="glyphicon glyphicon-remove"></span> <span class="sr-only">Nein</span></td>
