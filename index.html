@@ -41,7 +41,7 @@ layout: default
             <td>[[ clan.name ]]</td>
             <td>[[ clan.since ]]</td>
             <td><span ng-repeat="game in clan.games">[[ game | uppercase ]][[$last ? '' : ', ']]</span></td>
-            <td><img ng-if="clan.thumb" src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
+            <td><img ng-if="clan.thumb" ng-src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
             <td class="detail-expand">
               <a ng-if="clan.expanded" ng-click="clan.expanded = false">
                 <span class="glyphicon glyphicon-chevron-up"></span>
@@ -61,7 +61,7 @@ layout: default
                   </tr>
                   <tr ng-if="clan.thumb">
                     <th>Logo</th>
-                    <td><img src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
+                    <td><img ng-src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
                   </tr>
                   <tr>
                     <th>Gruendung</th>
