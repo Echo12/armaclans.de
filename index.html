@@ -27,18 +27,22 @@ layout: default
       <table class="table">
         <thead>
           <tr>
-            <th>Abkuerzung</th>
-            <th>Name</th>
-            <th></th>
-            <th></th>
+            <th class="col-md-2">Abkuerzung</th>
+            <th class="col-md-4">Name</th>
+            <th class="col-md-2">Gruendung</th>
+            <th class="col-md-2">ArmA</th>
+            <th class="col-md-1"></th>
+            <th class="col-md-1"></th>
           </tr>
         </thead>
         <tbody>
           <tr class="clanlist-row" ng-repeat-start="clan in clandata | filter: filterData.search | FilterListFilter">
             <td>[[ clan.slug ]]</td>
             <td>[[ clan.name ]]</td>
+            <td>[[ clan.since ]]</td>
+            <td><span ng-repeat="game in clan.games">[[ game | uppercase ]][[$last ? '' : ', ']]</span></td>
             <td><img ng-if="clan.thumb" src="{{ site.thumbpath | prepend: site.baseurl }}/[[ clan.thumb ]]"></td>
-            <td>
+            <td class="detail-expand">
               <a ng-if="clan.expanded" ng-click="clan.expanded = false">
                 <span class="glyphicon glyphicon-chevron-up"></span>
               </a>
@@ -48,11 +52,11 @@ layout: default
             </td>
           </tr>
           <tr class="clanlist-details" ng-if="clan.expanded" ng-repeat-end="">
-            <td colspan="3">
-              <table class="table table-bordered table-striped col-md-5">
+            <td colspan="6">
+              <table class="table table-striped col-md-5">
                 <tbody>
                   <tr>
-                    <th>Gruppe</th>
+                    <th class="col-md-6">Gruppe</th>
                     <td>[[ clan.name ]] ([[clan.slug]])</td>
                   </tr>
                   <tr ng-if="clan.thumb">
@@ -62,6 +66,10 @@ layout: default
                   <tr>
                     <th>Gruendung</th>
                     <td>[[ clan.since || 'Unbekannt']]</td>
+                  </tr>
+                  <tr>
+                    <th>ArmA Versionen</th>
+                    <td><span ng-repeat="game in clan.games">[[ game | uppercase ]][[$last ? '' : ', ']]</span></td>
                   </tr>
                   <tr>
                     <th>Auf Mitgliedersuche</th>

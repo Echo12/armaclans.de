@@ -51,3 +51,7 @@ body {
 .clanlist-row img {
     width: 25px;
 }
+
+.clanlist-row .detail-expand {
+  text-align: right;
+}
