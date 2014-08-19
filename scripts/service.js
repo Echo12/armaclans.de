@@ -90,6 +90,24 @@ angular.module('clansApp')
   });
 
   filterData.filters.push({
+    title: "Arma Version",
+    options: [{
+      text: "Egal",
+      filter: function(data) {return true;}
+    },{
+      text: "ArmA 2",
+      filter: function(data) {return data.games.contains("a2");}
+    },{
+      text: "ArmA 3",
+      filter: function(data) {return data.games.contains("a3");}
+    },{
+      text: "ArmA 2 & 3",
+      filter: function(data) {return data.games.contains("a2") && data.games.contains("a3");}
+    }],
+    selected: 0
+  });
+
+  filterData.filters.push({
     title: "Eigene Server",
     options: [{
       text: "Egal",
